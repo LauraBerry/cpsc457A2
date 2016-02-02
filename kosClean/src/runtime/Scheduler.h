@@ -19,21 +19,17 @@
 
 #include "generic/EmbeddedContainers.h"
 #include "runtime/Runtime.h"
-#include "generic/tree.h"
 
 class Thread;
-class ThreadNode;
 
 class Scheduler {
   friend void Runtime::idleLoop(Scheduler*);
   bufptr_t idleStack[minimumStack];
 
+  // very simple N-class prio scheduling
   BasicLock readyLock;
-  BasicLock printLock;
-  
   volatile mword readyCount; 
-  Tree<ThreadNode> *readyTree;
-  
+  EmbeddedList<Thread> readyQueue[maxPriority];
   volatile mword preemption;
   volatile mword resumption;
 
@@ -49,8 +45,6 @@ class Scheduler {
 
 public:
   Scheduler();
-  
-  bool switchTest(Thread* t);
   void setPartner(Scheduler& s) { partner = &s; }
   static void resume(Thread& t);
   void preempt();

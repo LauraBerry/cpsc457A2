@@ -22,7 +22,6 @@ Scheduler.o: runtime/Scheduler.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SynchronizedArray.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/ManagedArray.h \
@@ -58,7 +57,6 @@ Thread.o: runtime/Thread.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/RuntimeImpl.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
@@ -94,7 +92,6 @@ BlockingSync.o: runtime/BlockingSync.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h
 AddressSpace.o: kernel/AddressSpace.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
@@ -145,7 +142,6 @@ Multiboot.o: kernel/Multiboot.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -209,7 +205,6 @@ syscalls.o: kernel/syscalls.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
@@ -248,7 +243,6 @@ Process.o: kernel/Process.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SynchronizedArray.h \
@@ -321,7 +315,6 @@ Kernel.o: kernel/Kernel.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/ManagedArray.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/BlockingSync.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SyncQueues.h \
@@ -349,7 +342,6 @@ Processor.o: machine/Processor.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/APIC.h
 Machine.o: machine/Machine.cc \
@@ -375,7 +367,6 @@ Machine.o: machine/Machine.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Multiboot.h \
@@ -513,7 +504,6 @@ Keyboard.o: devices/Keyboard.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/MemoryManager.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h
 RTC.o: devices/RTC.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
@@ -566,7 +556,6 @@ Access.o: world/Access.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -597,7 +586,6 @@ LockTest.o: main/LockTest.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h
 InitProcess.o: main/InitProcess.cc \
@@ -627,7 +615,6 @@ InitProcess.o: main/InitProcess.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/JoinableThread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -703,7 +690,6 @@ Gdb.o: gdb/Gdb.cc /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/APIC.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Serial.h
@@ -731,7 +717,6 @@ Scheduler.s: runtime/Scheduler.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SynchronizedArray.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/ManagedArray.h \
@@ -767,7 +752,6 @@ Thread.s: runtime/Thread.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/RuntimeImpl.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
@@ -803,7 +787,6 @@ BlockingSync.s: runtime/BlockingSync.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h
 AddressSpace.s: kernel/AddressSpace.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
@@ -854,7 +837,6 @@ Multiboot.s: kernel/Multiboot.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -918,7 +900,6 @@ syscalls.s: kernel/syscalls.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
@@ -957,7 +938,6 @@ Process.s: kernel/Process.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SynchronizedArray.h \
@@ -1030,7 +1010,6 @@ Kernel.s: kernel/Kernel.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/ManagedArray.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/BlockingSync.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SyncQueues.h \
@@ -1058,7 +1037,6 @@ Processor.s: machine/Processor.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/APIC.h
 Machine.s: machine/Machine.cc \
@@ -1084,7 +1062,6 @@ Machine.s: machine/Machine.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Multiboot.h \
@@ -1222,7 +1199,6 @@ Keyboard.s: devices/Keyboard.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/MemoryManager.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h
 RTC.s: devices/RTC.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
@@ -1275,7 +1251,6 @@ Access.s: world/Access.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -1306,7 +1281,6 @@ LockTest.s: main/LockTest.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h
 InitProcess.s: main/InitProcess.cc \
@@ -1336,7 +1310,6 @@ InitProcess.s: main/InitProcess.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/JoinableThread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -1412,7 +1385,6 @@ Gdb.s: gdb/Gdb.cc /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/APIC.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Serial.h
@@ -1440,7 +1412,6 @@ Scheduler.e: runtime/Scheduler.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SynchronizedArray.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/ManagedArray.h \
@@ -1476,7 +1447,6 @@ Thread.e: runtime/Thread.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/RuntimeImpl.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
@@ -1512,7 +1482,6 @@ BlockingSync.e: runtime/BlockingSync.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h
 AddressSpace.e: kernel/AddressSpace.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
@@ -1563,7 +1532,6 @@ Multiboot.e: kernel/Multiboot.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -1627,7 +1595,6 @@ syscalls.e: kernel/syscalls.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
@@ -1666,7 +1633,6 @@ Process.e: kernel/Process.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Process.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SynchronizedArray.h \
@@ -1739,7 +1705,6 @@ Kernel.e: kernel/Kernel.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/ManagedArray.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/BlockingSync.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/SyncQueues.h \
@@ -1767,7 +1732,6 @@ Processor.e: machine/Processor.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/APIC.h
 Machine.e: machine/Machine.cc \
@@ -1793,7 +1757,6 @@ Machine.e: machine/Machine.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Multiboot.h \
@@ -1931,7 +1894,6 @@ Keyboard.e: devices/Keyboard.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/MemoryManager.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h
 RTC.e: devices/RTC.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
@@ -1984,7 +1946,6 @@ Access.e: world/Access.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Keyboard.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -2015,7 +1976,6 @@ LockTest.e: main/LockTest.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Clock.h
 InitProcess.e: main/InitProcess.cc \
@@ -2045,7 +2005,6 @@ InitProcess.e: main/InitProcess.cc \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Scheduler.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/JoinableThread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/Buffers.h \
@@ -2121,7 +2080,6 @@ Gdb.e: gdb/Gdb.cc /home/ugb/lnberry/cpsc457/A2/kosClean/src/testoptions.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/kernel/Output.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Paging.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/Machine.h \
- /home/ugb/lnberry/cpsc457/A2/kosClean/src/generic/tree.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/runtime/Thread.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/machine/APIC.h \
  /home/ugb/lnberry/cpsc457/A2/kosClean/src/devices/Serial.h
