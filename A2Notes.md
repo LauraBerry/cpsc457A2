@@ -1,9 +1,9 @@
 #To-Do List
 
 ##Part 1: Create system file to define schedular parameters
-[ ] create file "schedparam" in src/user/exec
-[ ] "schedparam" should be read and parsed by KOS BEFORE scheduler objects created
-[ ] print scheduler parameter names and values after parsed
+- [ ] create file "schedparam" in src/user/exec
+- [ ] "schedparam" should be read and parsed by KOS BEFORE scheduler objects created
+- [ ] print scheduler parameter names and values after parsed
 - Example of reading system file: src/kernel/Kernel.cc
 - KOUT:out1 for printing
 - scheduler objects initialization in src/machine.cc (BSP initilizaton)
@@ -12,13 +12,13 @@
   - minGranularity: 4ms
 
 ##Part 2: Recalibrate scheduler parameters
-[ ] set RTC to the high possible frequency
-[ ] print frequency on screen while KOS is booting
-[ ] recalibrate AFS scheduler parmeters in terms of TSC time ticks
-[ ] find average # of tics between two consecutive timer interrupts
-[ ] based on frequency of timer interrupt and average, calculate ticks of the interval
-[ ] store the ticks as static variables in scheduler class
-[ ] print recalibrated values during bot up
+- [ ] set RTC to the high possible frequency
+- [ ] print frequency on screen while KOS is booting
+- [ ] recalibrate AFS scheduler parmeters in terms of TSC time ticks
+- [ ] find average # of tics between two consecutive timer interrupts
+- [ ] based on frequency of timer interrupt and average, calculate ticks of the interval
+- [ ] store the ticks as static variables in scheduler class
+- [ ] print recalibrated values during bot up
 - RTC time drives periodic interrupts
   - Rate of 1024 Hz
 - Check files
@@ -34,11 +34,11 @@
       - extern "C" void irq_handler_0xed(mword* isrFrame)
       
 ##Part 3: Integrate balanced tree implementation
-[ ] add kernel code
-[ ] test it during boot time (place test cases anywhere)
+- [ ] add kernel code
+- [ ] test it during boot time (place test cases anywhere)
 
 ##Part 4: Implement scheduler
-[ ] implement using the tree
+- [ ] implement using the tree
 
 #Other Information
 
