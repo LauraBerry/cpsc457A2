@@ -33,7 +33,8 @@ public:
     mword start = currentTick;
     while (currentTick < start + ticks) CPU::Pause();
   }
-  mword tick() {
+  mword tick() 
+  {
     return currentTick;
   }
 };

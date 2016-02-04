@@ -143,3 +143,7 @@ void Scheduler::terminate() {
   switchThread(nullptr);
   unreachable();
 }
+
+//readyCount== how many process left to run
+//in RTC.h there is currentTick in .tick() 
+//

@@ -21,17 +21,23 @@
 #include "world/Access.h"
 #include "machine/Machine.h"
 #include "devices/Keyboard.h"
-
 #include "main/UserMain.h"
+#include "devices/RTC.h"
+
 
 AddressSpace kernelSpace(true); // AddressSpace.h
 volatile mword Clock::tick;     // Clock.h
 
 extern Keyboard keyboard;
 
+char epochLength;
+char minGranularity;
+
 #if TESTING_KEYCODE_LOOP
-static void keybLoop() {
-  for (;;) {
+static void keybLoop() 
+{
+  for (;;) 
+  {
     Keyboard::KeyCode c = keyboard.read();
     StdErr.print(' ', FmtHex(c));
   }
@@ -52,6 +58,42 @@ void kosMain() {
     }
     KOUT::outl();
   }
+// Edel
+// print out schedparam
+  bool flag = false;
+  auto iter2 = kernelFS.find("schedparam");
+  if (iter2 == kernelFS.end()) {
+    KOUT::outl("schedparam information not found");
+  } else {
+    FileAccess f(iter2->second);
+    for (;;) {
+      char c;
+      if (f.read(&c, 1) == 0) break;
+		//TODO: this part might be wrong (Laura, Edel)
+      if(!flag)
+      {
+        	minGranularity = c;
+        	flag = true;
+     		KOUT::out1(c);
+      }
+	  else
+      {
+      		epochLength = c;
+    		 KOUT::out1(c);
+	  }
+
+
+    }
+
+	  KOUT::out1(epochLength);
+ 	  KOUT::out1(minGranularity);
+
+    KOUT::outl();
+  }
+	RTC object;
+	mword variable=object.tick();
+	KOUT::outl(variable);
+
 #if TESTING_TIMER_TEST
   StdErr.print(" timer test, 3 secs...");
   for (int i = 0; i < 3; i++) {
@@ -69,7 +111,7 @@ void kosMain() {
 #if TESTING_PING_LOOP
   for (;;) {
     Timeout::sleep(Clock::now() + 1000);
-    KOUT::outl("...ping...");
+    // KOUT::outl("...ping...");
   }
 #endif
 }
