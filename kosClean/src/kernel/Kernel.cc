@@ -30,8 +30,8 @@ volatile mword Clock::tick;     // Clock.h
 
 extern Keyboard keyboard;
 
-char epochLength;
-char minGranularity;
+string epochLength;
+string minGranularity;
 
 #if TESTING_KEYCODE_LOOP
 static void keybLoop() 
@@ -58,45 +58,45 @@ void kosMain() {
     }
     KOUT::outl();
   }
-// Edel
-// print out schedparam
+  
+  // SCHEDPARAM
   bool flag = false;
   auto iter2 = kernelFS.find("schedparam");
-  if (iter2 == kernelFS.end()) {
+  if (iter2 == kernelFS.end()) 
+  {
     KOUT::outl("schedparam information not found");
-  } else {
+  } 
+  else 
+  {
     FileAccess f(iter2->second);
-    for (;;) {
+    for (;;) 
+	{
       char c;
       if (f.read(&c, 1) == 0) break;
-		//TODO: this part might be wrong (Laura, Edel)
+      
       if(!flag)
       {
         	minGranularity = c;
         	flag = true;
-     		KOUT::out1(c);
       }
 	  else
       {
-      		epochLength = c;
-    		 KOUT::out1(c);
+      		epochLength += c;
 	  }
-
-
     }
 
-	  KOUT::out1(epochLength);
- 	  KOUT::out1(minGranularity);
+    KOUT::out1(epochLength);
+    KOUT::out1(minGranularity);
 
     KOUT::outl();
   }
-	RTC object;
-	mword variable=object.tick();
+	mword variable=CPU::readTSC();
 	KOUT::outl(variable);
 
 #if TESTING_TIMER_TEST
   StdErr.print(" timer test, 3 secs...");
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 3; i++) 
+  {
     Timeout::sleep(Clock::now() + 1000);
     StdErr.print(' ', i+1);
   }
@@ -109,7 +109,8 @@ void kosMain() {
 #endif
   Thread::create()->start((ptr_t)UserMain);
 #if TESTING_PING_LOOP
-  for (;;) {
+  for (;;) 
+  {
     Timeout::sleep(Clock::now() + 1000);
     // KOUT::outl("...ping...");
   }
@@ -117,11 +118,15 @@ void kosMain() {
 }
 
 extern "C" void kmain(mword magic, mword addr, mword idx)         __section(".boot.text");
-extern "C" void kmain(mword magic, mword addr, mword idx) {
-  if (magic == 0 && addr == 0xE85250D6) {
+extern "C" void kmain(mword magic, mword addr, mword idx) 
+{
+  if (magic == 0 && addr == 0xE85250D6)
+ {
     // low-level machine-dependent initialization on AP
     Machine::initAP(idx);
-  } else {
+  } 
+  else 
+  {
     // low-level machine-dependent initialization on BSP -> starts kosMain
     Machine::initBSP(magic, addr, idx);
   }

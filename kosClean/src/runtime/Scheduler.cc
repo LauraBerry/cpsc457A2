@@ -146,4 +146,6 @@ void Scheduler::terminate() {
 
 //readyCount== how many process left to run
 //in RTC.h there is currentTick in .tick() 
-//
+//when couted in kernel it = 0
+//epochLengthis always 20 so epoch amount each process gets should be 20/readyCount.
+//around line 98 we find "t.priority" which i think is the process priority.

@@ -29,7 +29,8 @@ public:
     CPU::in8(0x71);         // read RTC -> needed to keep interrupts coming
     currentTick += 1;
   }
-  void wait(mword ticks) {
+  void wait(mword ticks) 
+  {
     mword start = currentTick;
     while (currentTick < start + ticks) CPU::Pause();
   }
