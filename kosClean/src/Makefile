@@ -3,6 +3,7 @@ include $(SRCDIR)/Makefile.config
 SOURCEDIRS=generic runtime kernel machine devices world main gdb
 SOURCES=$(wildcard $(addsuffix /*.cc,$(SOURCEDIRS)))
 BSOURCES=$(notdir $(SOURCES))
+USERLIBS=ulib/libKOS.a
 OBJECTS=$(BSOURCES:%.cc=%.o)
 SOBJECTS=$(BSOURCES:%.cc=%.s)
 EOBJECTS=$(BSOURCES:%.cc=%.e)
@@ -13,7 +14,6 @@ KERNLIBS=\
 	extern/cdi/libcdi.o\
 	extern/dlmalloc/malloc.o\
 	extern/lwip/liblwip.o
-USERLIBS=ulib/libKOS.a
 SUBDIRS=main user $(dir $(KERNLIBS) $(USERLIBS))
 
 vpath %.cc $(SOURCEDIRS)

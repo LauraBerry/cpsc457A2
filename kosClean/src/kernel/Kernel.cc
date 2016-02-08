@@ -23,7 +23,7 @@
 #include "devices/Keyboard.h"
 #include "main/UserMain.h"
 #include "devices/RTC.h"
-
+#include <stdlib.h>
 
 AddressSpace kernelSpace(true); // AddressSpace.h
 volatile mword Clock::tick;     // Clock.h
@@ -60,6 +60,7 @@ void kosMain() {
   }
   
   // SCHEDPARAM
+  /*
   bool flag = false;
   auto iter2 = kernelFS.find("schedparam");
   if (iter2 == kernelFS.end()) 
@@ -85,13 +86,14 @@ void kosMain() {
 	  }
     }
 
-    KOUT::out1(epochLength);
-    KOUT::out1(minGranularity);
+    KOUT::out1("Epoch length" + epochLength);
+    KOUT::out1("minGranularity" + minGranularity);
 
     KOUT::outl();
-  }
-	mword variable=CPU::readTSC();
-	KOUT::outl(variable);
+  } 
+	mword variable=Clock::now();
+    KOUT::out1("ticks");
+	KOUT::outl(variable); */
 
 #if TESTING_TIMER_TEST
   StdErr.print(" timer test, 3 secs...");
@@ -120,6 +122,7 @@ void kosMain() {
 extern "C" void kmain(mword magic, mword addr, mword idx)         __section(".boot.text");
 extern "C" void kmain(mword magic, mword addr, mword idx) 
 {
+    
   if (magic == 0 && addr == 0xE85250D6)
  {
     // low-level machine-dependent initialization on AP
@@ -130,4 +133,6 @@ extern "C" void kmain(mword magic, mword addr, mword idx)
     // low-level machine-dependent initialization on BSP -> starts kosMain
     Machine::initBSP(magic, addr, idx);
   }
+  
+  
 }

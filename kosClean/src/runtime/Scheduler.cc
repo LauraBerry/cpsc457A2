@@ -29,6 +29,9 @@ Scheduler::Scheduler() : readyCount(0), preemption(0), resumption(0), partner(th
   readyCount += 1;
 }
 
+static int epochLength;
+static int minGranularity;
+
 static inline void unlock() {}
 
 template<typename... Args>

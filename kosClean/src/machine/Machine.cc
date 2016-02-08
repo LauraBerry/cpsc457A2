@@ -90,6 +90,7 @@ static InterruptDescriptor idt[maxIDT]                __aligned(pagesize<1>());
 mword Machine::processorCount = 0;
 static Processor* processorTable = nullptr;
 static Scheduler* schedulerTable = nullptr;
+
 static mword bspIndex = ~mword(0);
 static mword bspApicID = ~mword(0);
 
@@ -118,6 +119,9 @@ static Semaphore asyncIrqSem;
 // init routine for APs: on boot stack and using identity paging
 void Machine::initAP(mword idx) {
   KASSERT1(idx == apIndex, idx);
+  
+  
+  
   processorTable[apIndex].init(pml4addr, idt, sizeof(idt), initAP2);
 }
 
@@ -253,12 +257,46 @@ void Machine::initBSP(mword magic, vaddr mbiAddr, mword idx) {
   kernelSpace.initKernel(kernelbot, initStart, pml4addr);
   DBG::outl(DBG::Boot, "AS/init: ", kernelSpace);
 
+  
   // parse ACPI tables: find/initialize CPUs, APICs, IOAPICs
   map<uint32_t,uint32_t> apicMap;
   map<uint32_t,paddr> ioApicMap;
-  map<uint8_t,pair<uint32_t,uint16_t>> ioOverrideMap;
   paddr rsdp = Multiboot::getRSDP() - kernelBase;
   paddr apicPhysAddr = initACPI(rsdp, apicMap, ioApicMap, ioOverrideMap);
+  /* A2 */
+  string epochLength;
+  string minGranularity;
+  bool flag = false;
+  auto iter2 = kernelFS.find("schedparam");
+  if (iter2 == kernelFS.end()) 
+  {
+    KOUT::outl("schedparam information not found");
+  } 
+  else 
+  {
+    FileAccess f(iter2->second);
+    for (;;) 
+	{
+      char c;
+      if (f.read(&c, 1) == 0) break;
+      
+      if(!flag)
+      {
+        	minGranularity = c;
+        	flag = true;
+      }
+	  else
+      {
+      		epochLength += c;
+	  }
+    }
+
+    KOUT::out1("Epoch length" + epochLength);
+    KOUT::out1("minGranularity" + minGranularity);
+
+    KOUT::outl();
+  } 
+  map<uint8_t,pair<uint32_t,uint16_t>> ioOverrideMap;
 
   // process IOAPIC/IRQ information -> mask all IOAPIC interrupts for now
   for (const pair<uint32_t,paddr>&iop : ioApicMap) {
@@ -285,6 +323,7 @@ void Machine::initBSP(mword magic, vaddr mbiAddr, mword idx) {
   // determine processorCount and create processorTable
   KASSERT0(apicMap.size());
   processorCount = apicMap.size();
+ 
   processorTable = knewN<Processor>(processorCount);
   schedulerTable = knewN<Scheduler>(processorCount);
   mword coreIdx = 0;
@@ -295,7 +334,7 @@ void Machine::initBSP(mword magic, vaddr mbiAddr, mword idx) {
       schedulerTable[coreIdx], frameManager, coreIdx, ap.second, ap.first);
     coreIdx += 1;
   }
-
+  
   // map APIC page, use APIC ID to determine bspIndex
   kernelSpace.mapDirect<1>(apicPhysAddr, apicAddr, pagesize<1>(), Paging::MMapIO);
   bspApicID = MappedAPIC()->getID();
@@ -320,6 +359,7 @@ void Machine::initBSP2() {
   // initialize GDB object -> after ACPI init & IDT installed
   initGdb(bspIndex);
 
+  
   DBG::outl(DBG::Boot, "Initializing basic devices...");
   // init RTC timer; used for preemption & sleeping
   rtc.init();
@@ -381,6 +421,10 @@ apDone:
   initCdiDrivers();
   DBG::outl(DBG::Boot, "CDI drivers initialized.");
 
+  
+
+  
+  
   // probe for PCI devices
   list<PCIDevice> pciDevList;
   PCI::sanityCheck();
@@ -393,10 +437,12 @@ apDone:
   DBG::outl(DBG::Boot, "Starting CDI devices...");
   // find and install CDI drivers for PCI devices - need interrupts for sleep
   for (const PCIDevice& pd : pciDevList) findCdiDriver(pd);
-
+  
   // start irq thread after cdi init -> avoid interference from device irqs
   DBG::outl(DBG::Boot, "Creating IRQ thread...");
   Thread::create()->setPriority(topPriority)->setAffinity(processorTable[0].scheduler)->start((ptr_t)asyncIrqLoop);
+  
+  
 }
 
 void Machine::bootCleanup() {
@@ -434,8 +480,8 @@ void Machine::bootCleanup() {
 
 void Machine::bootMain() {
   Machine::initBSP2();
-  Machine::bootCleanup();
   Thread::create()->start((ptr_t)kosMain);
+  Machine::bootCleanup();
   LocalProcessor::getScheduler()->terminate(); // explicitly terminate boot thread
 }
 
@@ -1065,5 +1111,7 @@ void Reboot(vaddr ia) {
   asm volatile("int $0xff");          // trigger triple fault
   unreachable();
 }
+
+
 
 extern "C" void KosReboot() { Reboot(); }
