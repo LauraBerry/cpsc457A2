@@ -1,9 +1,9 @@
 #To-Do List
 
 ##Part 1: Create system file to define schedular parameters
-- [ ] create file "schedparam" in src/user/exec
-- [ ] "schedparam" should be read and parsed by KOS BEFORE scheduler objects created
-- [ ] print scheduler parameter names and values after parsed
+- [x] create file "schedparam" in src/user/exec
+- [x] "schedparam" should be read and parsed by KOS BEFORE scheduler objects created
+- [x] print scheduler parameter names and values after parsed
 - Example of reading system file: src/kernel/Kernel.cc
 - KOUT:out1 for printing
 - scheduler objects initialization in src/machine.cc (BSP initilizaton)
@@ -12,7 +12,7 @@
   - minGranularity: 4ms
 
 ##Part 2: Recalibrate scheduler parameters
-- [ ] set RTC to the high possible frequency
+- [x] set RTC to the high possible frequency
 - [ ] print frequency on screen while KOS is booting
 - [ ] recalibrate AFS scheduler parmeters in terms of TSC time ticks
 - [ ] find average # of tics between two consecutive timer interrupts
