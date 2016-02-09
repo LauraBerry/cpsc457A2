@@ -1,4 +1,22 @@
 /******************************************************************************
+DONE            import atoi library
+convert to cycles
+store in scheduler
+
+machine
+    DONE        initbsp2()
+    DONE        near end but before kosmain() thread
+    DONE        get a cycle CPU::readTSC() and CPU::wait(1000) in miliseconds
+        DONE    how many cycles in one second
+        DONE    stored in scheduler
+    backup hard values also stored in scheduler
+
+rtc.cc
+    DONE        clear last four bits 0xF0
+    DONE        or it with 0x03(?) : read wiki
+    DONE        don't clear entire thing
+    DONE        top will tell how to do it
+    
     Copyright © 2012-2015 Martin Karsten
 
     This program is free software: you can redistribute it and/or modify
@@ -23,7 +41,9 @@
 #include "devices/Keyboard.h"
 #include "main/UserMain.h"
 #include "devices/RTC.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include <string>
 
 AddressSpace kernelSpace(true); // AddressSpace.h
 volatile mword Clock::tick;     // Clock.h
@@ -32,6 +52,9 @@ extern Keyboard keyboard;
 
 string epochLength;
 string minGranularity;
+
+const char* epoch;
+const char* gran;
 
 #if TESTING_KEYCODE_LOOP
 static void keybLoop() 
@@ -59,8 +82,8 @@ void kosMain() {
     KOUT::outl();
   }
   
-  // SCHEDPARAM
-  /*
+  /* A2 */
+  
   bool flag = false;
   auto iter2 = kernelFS.find("schedparam");
   if (iter2 == kernelFS.end()) 
@@ -75,25 +98,41 @@ void kosMain() {
       char c;
       if (f.read(&c, 1) == 0) break;
       
-      if(!flag)
+      if(!isspace(c))
       {
-        	minGranularity = c;
-        	flag = true;
+          if(flag == false)
+          {
+                minGranularity = c;
+                flag = true;
+          }
+          else
+          {
+                epochLength += c;
+          }
       }
-	  else
-      {
-      		epochLength += c;
-	  }
     }
-
-    KOUT::out1("Epoch length" + epochLength);
-    KOUT::out1("minGranularity" + minGranularity);
-
+    
     KOUT::outl();
   } 
-	mword variable=Clock::now();
-    KOUT::out1("ticks");
-	KOUT::outl(variable); */
+  
+    epoch = epochLength.c_str();
+    gran = minGranularity.c_str();
+    
+    Machine::epochLength = atoi(epoch);
+    Machine::minGranularity = atoi(gran);
+  
+    KOUT::out1("epochLength: " + epochLength);
+    KOUT::outl();
+    KOUT::out1("minGranularity: " + minGranularity);
+    KOUT::outl();
+    KOUT::out1("cycles: ");
+    KOUT::out1(Machine::cycles);
+    KOUT::outl();
+
+	Scheduler::epochLength=Machine::epochLength;
+	Scheduler::minGranularity=Machine::minGranularity;
+    
+    /* A2 */
 
 #if TESTING_TIMER_TEST
   StdErr.print(" timer test, 3 secs...");
@@ -133,6 +172,4 @@ extern "C" void kmain(mword magic, mword addr, mword idx)
     // low-level machine-dependent initialization on BSP -> starts kosMain
     Machine::initBSP(magic, addr, idx);
   }
-  
-  
 }

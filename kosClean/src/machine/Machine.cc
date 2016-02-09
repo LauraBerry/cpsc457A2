@@ -41,6 +41,12 @@
 #include <list>
 #include <map>
 
+/* A2 */
+// schedparam
+mword Machine::epochLength;
+mword Machine::minGranularity;
+mword Machine::cycles;
+
 // simple direct declarations in lieu of more header files
 extern void initCdiDrivers();
 extern bool findCdiDriver(const PCIDevice&);
@@ -262,41 +268,8 @@ void Machine::initBSP(mword magic, vaddr mbiAddr, mword idx) {
   map<uint32_t,uint32_t> apicMap;
   map<uint32_t,paddr> ioApicMap;
   paddr rsdp = Multiboot::getRSDP() - kernelBase;
-  paddr apicPhysAddr = initACPI(rsdp, apicMap, ioApicMap, ioOverrideMap);
-  /* A2 */
-  string epochLength;
-  string minGranularity;
-  bool flag = false;
-  auto iter2 = kernelFS.find("schedparam");
-  if (iter2 == kernelFS.end()) 
-  {
-    KOUT::outl("schedparam information not found");
-  } 
-  else 
-  {
-    FileAccess f(iter2->second);
-    for (;;) 
-	{
-      char c;
-      if (f.read(&c, 1) == 0) break;
-      
-      if(!flag)
-      {
-        	minGranularity = c;
-        	flag = true;
-      }
-	  else
-      {
-      		epochLength += c;
-	  }
-    }
-
-    KOUT::out1("Epoch length" + epochLength);
-    KOUT::out1("minGranularity" + minGranularity);
-
-    KOUT::outl();
-  } 
   map<uint8_t,pair<uint32_t,uint16_t>> ioOverrideMap;
+  paddr apicPhysAddr = initACPI(rsdp, apicMap, ioApicMap, ioOverrideMap);
 
   // process IOAPIC/IRQ information -> mask all IOAPIC interrupts for now
   for (const pair<uint32_t,paddr>&iop : ioApicMap) {
@@ -352,14 +325,14 @@ void Machine::initBSP(mword magic, vaddr mbiAddr, mword idx) {
 }
 
 // on proper stack, processor initialized
-void Machine::initBSP2() {
+void Machine::initBSP2() 
+{
   DBG::outl(DBG::Boot, "********** NEW STACK ***********");
   DBG::outl(DBG::Boot, "BSP: ", LocalProcessor::getIndex(), '/', LocalProcessor::getSystemID(), '/', LocalProcessor::getApicID());
 
   // initialize GDB object -> after ACPI init & IDT installed
   initGdb(bspIndex);
 
-  
   DBG::outl(DBG::Boot, "Initializing basic devices...");
   // init RTC timer; used for preemption & sleeping
   rtc.init();
@@ -421,10 +394,6 @@ apDone:
   initCdiDrivers();
   DBG::outl(DBG::Boot, "CDI drivers initialized.");
 
-  
-
-  
-  
   // probe for PCI devices
   list<PCIDevice> pciDevList;
   PCI::sanityCheck();
@@ -438,10 +407,19 @@ apDone:
   // find and install CDI drivers for PCI devices - need interrupts for sleep
   for (const PCIDevice& pd : pciDevList) findCdiDriver(pd);
   
+  /* A2 */
+  mword startTime = CPU::readTSC();
+	Clock::wait(1000);
+  mword endTime = CPU::readTSC();
+  
+  Machine::cycles = endTime - startTime;
+  
+  Machine::cycles = (Machine::cycles)/1000;
+  /* A2 */
+  
   // start irq thread after cdi init -> avoid interference from device irqs
   DBG::outl(DBG::Boot, "Creating IRQ thread...");
   Thread::create()->setPriority(topPriority)->setAffinity(processorTable[0].scheduler)->start((ptr_t)asyncIrqLoop);
-  
   
 }
 

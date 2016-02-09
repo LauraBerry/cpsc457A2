@@ -27,7 +27,7 @@ void RTC::init() { // see http://wiki.osdev.org/RTC
   CPU::out8(0x70, 0x0A);             // select Status Register A
   uint8_t prev = CPU::in8(0x71);     // read current value
   CPU::out8(0x70, 0x0A);             // select Status Register A
-  CPU::out8(0x71, (prev & 0xF0) | 0x03);      		 // set rate to 32768 //TODO: this might be wrong may need to double check it (Laura, Edel) // combination of or and and
+  CPU::out8(0x71, (prev & 0xF0) | 0x03);      		 // set rate to 32768 
 
   CPU::out8(0x70, 0x0B);             // select Status Register B
   prev = CPU::in8(0x71);             // read current value

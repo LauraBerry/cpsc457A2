@@ -23,6 +23,7 @@
 class Thread;
 
 class Scheduler {
+  
   friend void Runtime::idleLoop(Scheduler*);
   bufptr_t idleStack[minimumStack];
 
@@ -44,6 +45,10 @@ class Scheduler {
   const Scheduler& operator=(const Scheduler&) = delete; // no assignment
 
 public:
+  
+  static mword epochLength;
+  static mword minGranularity;
+  
   Scheduler();
   void setPartner(Scheduler& s) { partner = &s; }
   static void resume(Thread& t);

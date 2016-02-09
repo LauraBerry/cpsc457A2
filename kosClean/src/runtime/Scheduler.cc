@@ -20,6 +20,9 @@
 #include "runtime/Thread.h"
 #include "kernel/Output.h"
 
+mword Scheduler::epochLength;
+mword Scheduler::minGranularity;
+
 Scheduler::Scheduler() : readyCount(0), preemption(0), resumption(0), partner(this) {
   Thread* idleThread = Thread::create((vaddr)idleStack, minimumStack);
   idleThread->setAffinity(this)->setPriority(idlePriority);
@@ -28,9 +31,6 @@ Scheduler::Scheduler() : readyCount(0), preemption(0), resumption(0), partner(th
   readyQueue[idlePriority].push_back(*idleThread);
   readyCount += 1;
 }
-
-static int epochLength;
-static int minGranularity;
 
 static inline void unlock() {}
 
